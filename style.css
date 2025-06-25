@@ -1,0 +1,166 @@
+/* ------- RESET GENERAL ------- */
+/* Elimina márgenes/paddings por defecto y permite cálculo correcto de tamaños */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+/* ------- VARIABLES CSS (colores reutilizables) ------- */
+:root{
+  --bg-dark: #1c1c1c;
+  --bg-medium: #2e2e2e;
+  --bg-light: #f2f2f2;
+  --brand-orange: #ffa500;
+  --brand-orange-dk:#cc7a00;
+  --text-main:#ffffff;
+  --text-sec:#cccccc;
+}
+
+/* ------- ESTILO GLOBAL DEL CUERPO ------- */
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg-dark);
+  color:var(--text-main);
+  line-height:1.5;
+}
+
+/* ------- BANNER / HERO PRINCIPAL ------- */
+.portada{
+  width:100%;
+  height:40vh; /* altura controlada */
+  object-fit:cover;
+  object-position:center;
+}
+#promoCarousel .carousel-item img{
+  height:300px;
+  object-fit:cover;
+}
+
+/* ------- NAVBAR ------- */
+.navbar{
+  background:rgba(0,0,0,.85)!important;
+}
+.logo{height:48px}
+.titulo-gym{font-size:1.9rem;font-weight:700;margin-left:.3rem}
+.letra-blanca{color:var(--text-main)}
+.letra-naranja{color:var(--brand-orange)}
+
+/* ------- ESTILO DE TODAS LAS SECCIONES ------- */
+section{
+  padding:60px 20px;
+}
+section:nth-of-type(even){
+  background:var(--bg-medium); /* alternancia de fondo */
+}
+section h2{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+/* ------- TARJETAS DE PLANES ------- */
+.card{
+  background:var(--bg-dark);
+  border:none;
+  color:var(--text-main);
+  box-shadow:0 4px 10px rgba(0,0,0,.4);
+  transition:transform .25s
+}
+.card:hover{transform:translateY(-4px)}
+.card .btn{
+  background:var(--brand-orange);
+  border:none;
+}
+.card .btn:hover{background:var(--brand-orange-dk)}
+
+/* ------- ESTILO DE PROMOCIONES (banners) ------- */
+.banner-wrapper{gap:1.5rem}
+.banner{
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  height:260px;
+}
+.banner img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000;
+}
+.banner-overlay{
+  position:absolute;inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  font-size:1.8rem;
+  font-weight:700;
+  opacity:0;
+  transition:opacity .3s;
+}
+.banner:hover .banner-overlay{opacity:1}
+
+/* ------- TARJETAS DE SUCURSALES ------- */
+.card img{height:160px;object-fit:cover}
+.card a{
+  color:var(--brand-orange);
+  font-weight:600;
+  text-decoration:none;
+}
+.card a:hover{text-decoration:underline}
+
+/* ------- FORMULARIOS ------- */
+.form-control{
+  background:var(--bg-dark);
+  border:1px solid var(--brand-orange-dk);
+  color:var(--text-main);
+}
+.btn-primary,.btn-success{
+  background:var(--brand-orange);
+  border:none;
+}
+.btn-primary:hover,.btn-success:hover{
+  background:var(--brand-orange-dk);
+}
+
+/* ------- PIE DE PÁGINA ------- */
+footer{
+  background:#111;
+  text-align:center;
+  padding:30px 15px;
+}
+footer img{
+  filter:grayscale(.4);
+  margin:0 6px;
+  width:28px;
+  transition:filter .3s;
+}
+footer img:hover{filter:none}
+
+/* ------- RESPONSIVE: Banner y portada se ajustan en pantallas pequeñas ------- */
+@media(max-width:768px){
+  .portada{height:28vh}
+  .banner{height:200px}
+}
+
+/* ------- CLASES ADICIONALES / UTILIDADES ------- */
+.letra-logo{letter-spacing:0}
+.banner-ajustado{
+  height:260px;
+  object-fit:contain;
+  background:#000;
+}
+
+/* ------- PERSONALIZACIÓN QUIÉNES SOMOS ------- */
+#btnQuienes {
+  background: linear-gradient(to right, #cc7a00, #ffa500); /* fondo tipo gradiente */
+}
+#btnQuienes img {
+  object-fit: cover;
+  opacity: 0.7;
+  display: block;
+}
+#btnQuienes .banner-overlay {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
