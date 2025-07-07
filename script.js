@@ -101,32 +101,45 @@ function checkout() {
 
 // Valida el formulario de contacto y redirige a WhatsApp con mensaje personalizado
 function enviarFormulario() {
-  const nombre = document.getElementById('nombre').value.trim();
-  const mensaje = document.getElementById('mensaje').value.trim();
+  const nombre = document.getElementById('nombre');
+  const mensaje = document.getElementById('mensaje');
   const errorNombre = document.getElementById('error-nombre');
   const errorMensaje = document.getElementById('error-mensaje');
 
+  let valido = true;
+
+  // Reset
+  nombre.classList.remove('is-invalid');
+  mensaje.classList.remove('is-invalid');
   errorNombre.textContent = '';
   errorMensaje.textContent = '';
 
-  let valido = true;
-
-  if (nombre.length < 3) {
+  if (nombre.value.trim().length < 3) {
     errorNombre.textContent = 'Por favor, ingresa tu nombre completo.';
+    nombre.classList.add('is-invalid');
     valido = false;
   }
 
-  if (mensaje.length < 5) {
+  if (mensaje.value.trim().length < 5) {
     errorMensaje.textContent = 'El mensaje es muy corto.';
+    mensaje.classList.add('is-invalid');
     valido = false;
   }
 
   if (!valido) return;
 
+  const url = `https://wa.me/56912345678?text=Hola, soy ${nombre.value.trim()}. ${mensaje.value.trim()}`;
+  window.open(url, '_blank');
+
+  // Reset del formulario
+  nombre.value = '';
+  mensaje.value = '';
+}
+
   // Enlace directo a WhatsApp con mensaje personalizado
   const url = `https://wa.me/56912345678?text=Hola, soy ${nombre}. ${mensaje}`;
   window.open(url, '_blank');
-}
+
 
 // ---------- MAPA ENLACES ----------
 // Detecta click en cualquier enlace con clase 'link-map' y abre su ubicación en una pestaña nueva

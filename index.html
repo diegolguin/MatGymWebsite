@@ -66,7 +66,7 @@
           <div class="card-body">
             <h5 class="card-title">Plan Básico</h5>
             <p class="card-text">Acceso a máquinas + duchas.</p>
-            <p class="display-6">$25 000</p>
+            <p class="display-6">$25.000</p>
             <button class="btn btn-success w-100" onclick="addToCart('Plan Básico',25000)">Añadir</button>
           </div>
         </div>
@@ -76,7 +76,7 @@
           <div class="card-body">
             <h5 class="card-title">Plan Plus</h5>
             <p class="card-text">Clases grupales + todo lo anterior.</p>
-            <p class="display-6">$35 000</p>
+            <p class="display-6">$35.000</p>
             <button class="btn btn-success w-100" onclick="addToCart('Plan Plus',35000)">Añadir</button>
           </div>
         </div>
@@ -86,7 +86,7 @@
           <div class="card-body">
             <h5 class="card-title">Plan Pro</h5>
             <p class="card-text">Entrenador personal incluido.</p>
-            <p class="display-6">$50 000</p>
+            <p class="display-6">$50.000</p>
             <button class="btn btn-success w-100" onclick="addToCart('Plan Pro',50000)">Añadir</button>
           </div>
         </div>
@@ -212,15 +212,21 @@
   <!-- CONTACTO / FORMULARIO -->
   <section id="contacto" class="container py-5">
     <h2 class="mb-4 text-center">Contáctanos</h2>
-    <div class="row justify-content-center">
+    <form class="row justify-content-center" onsubmit="enviarFormulario(); return false;">
       <div class="col-md-8">
-        <label class="form-label">Nombre:</label>
-        <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" />
-        <label class="form-label mt-3">Mensaje:</label>
-        <textarea id="mensaje" rows="4" class="form-control" placeholder="Tu mensaje..."></textarea>
-        <button class="btn btn-success mt-3 w-100" onclick="enviarFormulario()">Enviar por WhatsApp</button>
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" required>
+          <div id="error-nombre" class="invalid-feedback"></div>
+        </div>
+        <div class="mb-3">
+          <label for="mensaje" class="form-label">Mensaje:</label>
+          <textarea id="mensaje" class="form-control" rows="4" placeholder="Tu mensaje..." required></textarea>
+          <div id="error-mensaje" class="invalid-feedback"></div>
+        </div>
+        <button type="submit" class="btn btn-warning w-100">Enviar por WhatsApp</button>
       </div>
-    </div>
+    </form>
   </section>
 
   <!-- FOOTER -->
